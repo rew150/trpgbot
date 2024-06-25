@@ -1,0 +1,6 @@
+discord_token = ""
+sqlite_conn = ""
+log_level = "info"
+
+# only register slash commands for these guilds
+guild_ids = []

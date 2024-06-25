@@ -1,0 +1,32 @@
+# workspace level
+[tasks.generate-entity]
+workspace = false
+command = "sea-orm-cli"
+args = ["generate", "entity", "-o", "entity/src", "--date-time-crate", "time", "--lib"]
+dependencies = [
+    "sea-orm-cli",
+    "dotenv",
+]
+
+[tasks.migrate]
+workspace = false
+command = "sea-orm-cli"
+args = ["migrate"]
+dependencies = [
+    "sea-orm-cli",
+    "dotenv",
+]
+
+[tasks.sea-orm-cli]
+workspace = false
+install_crate = "sea-orm-cli"
+
+[tasks.dotenv]
+workspace = false
+script_runner = "@rust"
+script.file = "scripts/dotenv.rs"
+
+# project level
+[tasks.fmt]
+command = "cargo"
+args = ["fmt"]
