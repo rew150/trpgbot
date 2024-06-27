@@ -1,10 +1,7 @@
-use super::{Context, Error};
+use super::{Context, Result};
 
 #[poise::command(slash_command)]
-pub async fn ping(
-    ctx: Context<'_>,
-    #[description = "Ping message"] msg: String,
-) -> Result<(), Error> {
+pub async fn ping(ctx: Context<'_>, #[description = "Ping message"] msg: String) -> Result<()> {
     let pt = ctx
         .data()
         .ping

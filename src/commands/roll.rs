@@ -3,7 +3,7 @@ use poise::{
     CreateReply,
 };
 
-use super::{Context, Error};
+use super::{Context, Result};
 
 fn embed_result(text: String) -> CreateReply {
     CreateReply::default()
@@ -20,7 +20,7 @@ fn embed_result(text: String) -> CreateReply {
 pub async fn roll(
     ctx: Context<'_>,
     #[description = "Dice notation"] notation: String,
-) -> Result<(), Error> {
+) -> Result<()> {
     let repo = ctx.data().nist_repo.clone();
 
     let mut ns = &notation[..];
